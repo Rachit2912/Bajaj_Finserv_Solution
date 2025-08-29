@@ -29,16 +29,13 @@ app.post("/bfhl", (req, res) => {
 
     data.forEach((item) => {
       if (/^\d+$/.test(item)) {
-        // number
         const num = parseInt(item, 10);
         sum += num;
         if (num % 2 === 0) even_numbers.push(item);
         else odd_numbers.push(item);
       } else if (/^[a-zA-Z]+$/.test(item)) {
-        // alphabets
         alphabets.push(item.toUpperCase());
       } else {
-        // special characters
         special_characters.push(item);
       }
     });
@@ -63,7 +60,6 @@ app.post("/bfhl", (req, res) => {
   }
 });
 
-// default route
 app.get("/", (req, res) => {
   res.send("API running. Use POST /bfhl");
 });
